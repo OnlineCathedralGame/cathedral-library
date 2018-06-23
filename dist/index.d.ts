@@ -43,7 +43,10 @@ declare namespace CatLib {
   function parseBorders (structure: StructureGrid): BorderGrid;
   function rotatePiece (piece: Piece): Piece;
   function territoryAssignment (StructureGrid: StructureGrid, PieceGrid: PieceGrid): StructureGrid;
-  function validatePiece (grids: IsPieceValidGrids, piece: Piece, location: number[]): boolean;
+  function validatePiece (grids: IsPieceValidGrids, piece: Piece, location: number[], attemptedRotations: number): {
+    readonly validated: boolean,
+    readonly validatedPiece: Piece
+  };
 }
 
 export = CatLib;
