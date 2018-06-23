@@ -1,4 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const EmptyMatrix_1 = require("./scripts/EmptyMatrix");
+var EmptyMatrix_1 = require("./scripts/EmptyMatrix");
 exports.EmptyMatrix = EmptyMatrix_1.default;
+var insertPiece_1 = require("./scripts/insertPiece");
+exports.insertPiece = insertPiece_1.default;
+var parseBorders_1 = require("./scripts/parseBorders");
+exports.parseBorders = parseBorders_1.default;
+var rotatePiece_1 = require("./scripts/rotatePiece");
+exports.rotatePiece = rotatePiece_1.default;
+var territoryAssignment_1 = require("./scripts/territoryAssignment");
+exports.territoryAssignment = territoryAssignment_1.default;
+var validatePiece_1 = require("./scripts/validatePiece");
+exports.validatePiece = validatePiece_1.default;
