@@ -12,13 +12,11 @@ declare namespace CatLib {
   type PieceGrid = ReadonlyArray<ReadonlyArray<Piece | null>>;
   type StructureGrid = ReadonlyArray<ReadonlyArray<State['player'] | null>>;
   type BorderGrid = ReadonlyArray<ReadonlyArray<ReadonlyArray<boolean> | null>>;
-  type VisualGrid = StructureGrid;
 
   interface Grids {
     readonly PieceGrid: PieceGrid;
     readonly StructureGrid: StructureGrid;
     readonly BorderGrid: BorderGrid;
-    readonly VisualGrid: VisualGrid;
   }
 
   interface Available {

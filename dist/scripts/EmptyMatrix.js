@@ -1,7 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // tslint:disable-next-line:no-any
-var EmptyMatrix = function (x) {
-    return Array.from({ length: x }, function () {
-        return Array.from({ length: x }, function () { return null; });
-    });
-};
-export default EmptyMatrix;
+const EmptyMatrix = (x) => Array.from({ length: x }, () => Array.from({ length: x }, () => null));
+exports.default = EmptyMatrix;
