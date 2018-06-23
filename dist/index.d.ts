@@ -33,8 +33,17 @@ declare namespace CatLib {
     readonly size: number;
   }
 
-  function EmptyMatrix (x: number): ReadonlyArray<ReadonlyArray<null>>;
+  interface IsPieceValidGrids {
+    readonly StructureGrid: StructureGrid;
+    readonly PieceGrid: PieceGrid;
+  }
 
+  function EmptyMatrix (x: number): ReadonlyArray<ReadonlyArray<null>>;
+  function insertPiece (grids: Grids, piece: Piece): Grids;
+  function parseBorders (structure: StructureGrid): BorderGrid;
+  function rotatePiece (piece: Piece): Piece;
+  function territoryAssignment (StructureGrid: StructureGrid, PieceGrid: PieceGrid): StructureGrid;
+  function validatePiece (grids: IsPieceValidGrids, piece: Piece, location: number[]): boolean;
 }
 
 export = CatLib;
