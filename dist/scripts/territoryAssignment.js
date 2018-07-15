@@ -75,15 +75,10 @@ const regionAssignment = (board, pieceGrid, target, beta) => {
     }
     return b;
 };
-const territoryAssignment = (StructureGrid, PieceGrid) => {
+exports.territoryAssignment = (StructureGrid, PieceGrid) => {
     zoneArrayP1 = [];
     zoneArrayP2 = [];
-    let beta = 0;
-    StructureGrid.forEach((row) => row.forEach((block) => {
-        if (block !== null) {
-            beta++;
-        }
-    }));
+    const beta = StructureGrid.reduce((count, row) => count + row.filter((block) => block !== null).length, 0);
     const t1 = regionAssignment(StructureGrid, PieceGrid, -1, beta);
     const t2 = regionAssignment(StructureGrid, PieceGrid, +1, beta);
     return StructureGrid.map((row, y) => row.map((block, x) => {
@@ -101,4 +96,3 @@ const territoryAssignment = (StructureGrid, PieceGrid) => {
         return null;
     }));
 };
-exports.default = territoryAssignment;

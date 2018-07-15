@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "dist/",
+    "declarationDir": "lib/",
     "module": "commonjs",
     "target": "es6",
     "lib": ["es6", "dom", "es2017.object"],
@@ -12,7 +13,8 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "declaration": true
   },
   "exclude": [
     "node_modules",

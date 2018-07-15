@@ -1,31 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const rotatePiece_1 = require("./rotatePiece");
-const isPieceValid = (grids, piece, location) => {
+const __1 = require("../");
+const isPieceValid = (grid, piece, location) => {
     const [centreY, centreX] = location;
-    const { StructureGrid } = grids;
     const { structure } = piece;
     const deviation = Math.floor(structure.length / 2);
     return structure.every((row, pieceY) => {
         const gridY = centreY - deviation + pieceY;
         return row.every((block, pieceX) => {
             const gridX = centreX - deviation + pieceX;
-            const isOOB = StructureGrid[gridY] === undefined ||
-                StructureGrid[gridY][gridX] === undefined;
+            const isOOB = grid[gridY] === undefined ||
+                grid[gridY][gridX] === undefined;
             if (isOOB) {
                 return block === null;
             }
-            return StructureGrid[gridY][gridX] === null || block === null;
+            return grid[gridY][gridX] === null || block === null;
         });
     });
 };
-const validatePiece = (grids, piece, location, attemptedRotations = 0) => {
-    if (isPieceValid(grids, piece, location)) {
-        return { validated: true, validatedPiece: piece };
+exports.validatePiece = (grid, piece, location, attemptedRotations = 0) => {
+    if (isPieceValid(grid, piece, location)) {
+        return piece;
     }
     if (attemptedRotations === 3) {
-        return { validated: false, validatedPiece: piece };
+        return;
     }
-    return validatePiece(grids, rotatePiece_1.default(piece), location, attemptedRotations + 1);
+    return exports.validatePiece(grid, __1.rotatePiece(piece), location, attemptedRotations + 1);
 };
-exports.default = validatePiece;
