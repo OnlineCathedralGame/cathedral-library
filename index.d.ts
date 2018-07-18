@@ -1,4 +1,4 @@
-export * from './lib';
+export * from './types';
 
 export interface State {
   readonly player: -1 | 0 | 1;
