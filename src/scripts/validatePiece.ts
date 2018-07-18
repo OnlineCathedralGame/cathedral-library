@@ -1,5 +1,4 @@
-import { rotatePiece } from '../';
-import { Piece, StructureGrid } from '../../';
+import { Piece, rotatePiece, StructureGrid } from '../../';
 
 const isPieceValid = (grid: StructureGrid, piece: Piece, location: number[]): boolean => {
 

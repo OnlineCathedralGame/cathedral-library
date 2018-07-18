@@ -1,5 +1,7 @@
 // tslint:disable-next-line:no-any
-export const EmptyMatrix = (x: number): ReadonlyArray<ReadonlyArray<null>> =>
+import { Grid } from '../../';
+
+export const EmptyMatrix = (x: number): Grid<null> =>
   Array.from({ length: x }, () =>
     Array.from({ length: x }, () => null )
   );
