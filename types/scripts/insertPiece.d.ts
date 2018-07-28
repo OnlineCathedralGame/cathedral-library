@@ -1,2 +1,2 @@
 import { Grids, Piece } from '../../';
-export declare const insertPiece: (grids: Grids, piece: Piece) => Grids;
+export declare const insertPiece: (grids: Grids, ...pieces: Piece[]) => Grids;

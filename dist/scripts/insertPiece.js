@@ -18,19 +18,19 @@ const insertInGrid = (grid, item, location) => {
         });
     });
 };
-exports.insertPiece = (grids, piece) => {
-    const { StructureGrid, PieceGrid, BorderGrid } = grids;
-    const { structure, location } = piece;
-    const borders = __1.parseBorders(structure);
-    if (location.length === 0) {
-        return grids;
-    }
-    const newStructureGrid = insertInGrid(StructureGrid, structure, location);
-    const newPieceGrid = insertInGrid(PieceGrid, [[piece]], location);
-    const newBorderGrid = insertInGrid(BorderGrid, borders, location);
-    return {
-        StructureGrid: __1.territoryAssignment(newStructureGrid, newPieceGrid),
-        PieceGrid: newPieceGrid,
-        BorderGrid: newBorderGrid,
-    };
+exports.insertPiece = (grids, ...pieces) => {
+    const newGrids = pieces.reduce((grids, piece) => {
+        const { StructureGrid, PieceGrid, BorderGrid } = grids;
+        const { structure, location } = piece;
+        const borders = __1.parseBorders(structure);
+        if (location.length === 0) {
+            return grids;
+        }
+        return {
+            StructureGrid: insertInGrid(StructureGrid, structure, location),
+            PieceGrid: insertInGrid(PieceGrid, [[piece]], location),
+            BorderGrid: insertInGrid(BorderGrid, borders, location),
+        };
+    }, grids);
+    return Object.assign({}, newGrids, { StructureGrid: __1.territoryAssignment(newGrids) });
 };
