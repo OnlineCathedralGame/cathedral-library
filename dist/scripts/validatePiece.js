@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const __1 = require("../");
+const __1 = require("../../");
 const isPieceValid = (grid, piece, location) => {
     const [centreY, centreX] = location;
     const { structure } = piece;
