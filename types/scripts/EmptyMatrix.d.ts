@@ -1,1 +1,1 @@
-export declare const EmptyMatrix: (x: number) => ReadonlyArray<ReadonlyArray<null>>;
+export declare const EmptyMatrix: (n: number) => ReadonlyArray<ReadonlyArray<null>>;
