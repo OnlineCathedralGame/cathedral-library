@@ -1,8 +1,9 @@
-export * from './types';
+export * from './src';
+// export * from './types';
 
 export interface State {
   readonly player: -1 | 0 | 1;
-  readonly grids: Grids;
+  readonly pieces: Piece[];
   readonly selected: Piece;
   readonly available: Available;
   readonly socket: SocketIOClient.Socket;
