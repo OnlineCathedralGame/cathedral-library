@@ -75,7 +75,7 @@ const regionAssignment = (board, pieceGrid, target, beta) => {
     }
     return b;
 };
-exports.territoryAssignment = (StructureGrid, PieceGrid) => {
+exports.territoryAssignment = ({ StructureGrid, PieceGrid }) => {
     zoneArrayP1 = [];
     zoneArrayP2 = [];
     const beta = StructureGrid.reduce((count, row) => count + row.filter((block) => block !== null).length, 0);

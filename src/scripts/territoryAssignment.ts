@@ -1,5 +1,5 @@
 // tslint:disable: no-object-mutation
-import { PieceGrid, StructureGrid } from '../../';
+import { Grids, PieceGrid, StructureGrid } from '../../';
 
 let alpha = 0;
 
@@ -79,7 +79,7 @@ const regionAssignment = (board: StructureGrid, pieceGrid: PieceGrid, target: -1
   return b as number[][];
 };
 
-export const territoryAssignment = ( StructureGrid: StructureGrid, PieceGrid: PieceGrid) => {
+export const territoryAssignment = ({ StructureGrid, PieceGrid }: Grids): StructureGrid => {
   zoneArrayP1 = [];
   zoneArrayP2 = [];
 
