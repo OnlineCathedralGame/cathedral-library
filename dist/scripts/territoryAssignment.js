@@ -64,7 +64,7 @@ const floodFill = (board, pieces, x, y, target, replacement) => {
 const regionAssignment = (board, pieces, target, beta) => {
     const b = board.map((row) => [...row]);
     alpha = 0;
-    const floodFill = configureFloodFill(board, pieces);
+    const floodFill = configureFloodFill(b, pieces);
     for (let y = 0, c = 2; y < 10; y++) {
         for (let x = 0; x < 10; x++, c += 2) {
             floodFill(x, y, target, c);
