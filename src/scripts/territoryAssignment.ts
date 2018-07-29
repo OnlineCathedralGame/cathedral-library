@@ -67,8 +67,7 @@ const floodFill = (
 const regionAssignment = (board: StructureGrid, pieces: Piece[], target: -1 | 1, beta: number) => {
   const b: Grid = board.map((row) => [...row]);
   alpha = 0;
-  const floodFill = configureFloodFill(board as Grid, pieces);
-
+  const floodFill = configureFloodFill(b, pieces);
   for (let y = 0, c = 2; y < 10; y++) {
     for (let x = 0; x < 10; x++, c += 2) {
         floodFill(x, y, target, c);
