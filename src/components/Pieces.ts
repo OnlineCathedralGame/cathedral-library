@@ -5,7 +5,7 @@ const Pieces: Pieces = {
 
   ca: {
     name: 'Cathedral',
-    size: 0,
+    size: 6,
     structure: [
       [null, null, null, null, null],
       [null, null, 0,    null, null],
