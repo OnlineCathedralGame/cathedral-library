@@ -31,7 +31,9 @@ export interface Piece {
   readonly rotation: number;
   readonly location: number[];
   readonly player: number;
+  readonly removable: boolean;
   readonly structure: StructureGrid;
+  readonly borders: BorderGrid;
   readonly name: string;
   readonly size: number;
 }

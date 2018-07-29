@@ -1,4 +1,4 @@
-import { Grid, Grids, parseBorders, Piece, territoryAssignment } from '../../';
+import { Grid, Grids, Piece } from '../../';
 
 const insertInGrid = <T>(
   grid: Grid<T>,
@@ -26,8 +26,7 @@ const insertInGrid = <T>(
 export const insertPiece = (grids: Grids, ...pieces: Piece[]): Grids => {
   const newGrids = pieces.reduce((grids, piece) => {
     const { StructureGrid, PieceGrid, BorderGrid } = grids;
-    const { structure, location } = piece;
-    const borders = parseBorders(structure);
+    const { structure, borders, location } = piece;
 
     if (location.length === 0) {
       return grids;

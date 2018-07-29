@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./EmptyMatrix"));
 __export(require("./handlePlacement"));
 __export(require("./insertPiece"));
-__export(require("./parseBorders"));
 __export(require("./rotatePiece"));
 __export(require("./territoryAssignment"));
 __export(require("./validatePiece"));

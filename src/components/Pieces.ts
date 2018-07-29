@@ -1,5 +1,5 @@
 /* tslint:disable:no-multi-spaces trailing-comma */
-import { Piece, State } from '../../';
+import { BorderGrid, Piece, State } from '../../';
 
 const Pieces: Pieces = {
 
@@ -127,13 +127,27 @@ const Pieces: Pieces = {
 };
 
 export const getPiece = (notation: string = '', player: State['player'] = 0): Piece => {
+  const parseBorders = (structure: Piece['structure']): BorderGrid => {
+    const maxCoord = structure.length - 1;
+
+    return structure.map((row, y, structure) => row.map((piece, x) => (
+      piece !== null ? [
+        y === 0 || structure[y - 1][x] !== piece,        // up
+        x === maxCoord || structure[y][x + 1] !== piece, // right
+        y === maxCoord || structure[y + 1][x] !== piece, // down
+        x === 0 || structure[y][x - 1] !== piece,        // left
+      ] : null
+    )));
+  };
 
   if (!notation) {
     return {
       notation: '',
       rotation: 0,
       structure: [],
+      borders: [],
       location: [],
+      removable: false,
       name: '',
       size: 0,
       player,
@@ -142,7 +156,7 @@ export const getPiece = (notation: string = '', player: State['player'] = 0): Pi
   const structure = ((player === -1 && (notation === 'ab' || notation === 'ac'))
     ? Pieces[notation].structure.map((row) => [...row].reverse())
     : Pieces[notation].structure)
-    .map((row) => row.map((block) => block ?  player : block));
+    .map((row) => row.map((block) => block && player));
 
   return {
     ...Pieces[notation],
@@ -150,6 +164,8 @@ export const getPiece = (notation: string = '', player: State['player'] = 0): Pi
     rotation: 0,
     location: [],
     structure,
+    removable: false,
+    borders: parseBorders(structure),
     player: notation === 'ca' ? 0 : player,
   };
 
