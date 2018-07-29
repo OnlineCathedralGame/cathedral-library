@@ -14,7 +14,7 @@ const insertInGrid = <T>(
     }
     const pieceY = gridY - centreY + deviation;
     return row.map((block, gridX) => {
-      if (gridX < centreX - deviation || gridX > centreX + deviation) {
+      if (block || gridX < centreX - deviation || gridX > centreX + deviation) {
         return block;
       }
       const pieceX = gridX - centreX + deviation;
@@ -24,7 +24,7 @@ const insertInGrid = <T>(
 };
 
 export const insertPiece = (grids: Grids, ...pieces: Piece[]): Grids => {
-  const newGrids = pieces.reduce((grids, piece) => {
+   return pieces.reduce((grids, piece) => {
     const { StructureGrid, PieceGrid, BorderGrid } = grids;
     const { structure, borders, location } = piece;
 
@@ -38,9 +38,4 @@ export const insertPiece = (grids: Grids, ...pieces: Piece[]): Grids => {
       BorderGrid: insertInGrid(BorderGrid, borders, location),
     };
   }, grids);
-
-  return {
-    ...newGrids,
-    StructureGrid: territoryAssignment(newGrids),
-  };
 };
