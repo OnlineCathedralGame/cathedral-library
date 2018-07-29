@@ -5,7 +5,6 @@ export interface State {
   readonly pieces: Piece[];
   readonly selected: Piece;
   readonly available: Available;
-  readonly socket: SocketIOClient.Socket;
   readonly move: -1 | 1;
 }
 
