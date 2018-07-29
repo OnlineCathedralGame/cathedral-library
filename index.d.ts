@@ -1,5 +1,4 @@
 export * from './src';
-// export * from './types';
 
 export interface State {
   readonly player: -1 | 0 | 1;
@@ -22,9 +21,7 @@ export interface Grids {
   readonly BorderGrid: BorderGrid;
 }
 
-export interface Available {
-  readonly [notation: string]: number;
-}
+export type Available = Map<string, number>;
 
 export interface Piece {
   readonly notation: string;
