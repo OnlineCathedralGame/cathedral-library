@@ -20,7 +20,9 @@ export interface Grids {
   readonly BorderGrid: BorderGrid;
 }
 
-export type Available = Map<string, number>;
+export interface Available {
+  readonly [notation: string]: number;
+}
 
 export interface Piece {
   readonly notation: string;
