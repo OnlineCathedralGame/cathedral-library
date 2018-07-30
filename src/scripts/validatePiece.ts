@@ -1,6 +1,6 @@
 import { InvalidMoves, Piece, rotatePiece, StructureGrid } from '../../';
 
-const isPieceValid = (grid: StructureGrid, piece: Piece, location: number[], firstMove = false): boolean => {
+export const isPieceValid = (grid: StructureGrid, piece: Piece, location: number[], firstMove = false): boolean => {
 
   const [centreY, centreX] = location;
   const { notation, rotation, structure } = piece;

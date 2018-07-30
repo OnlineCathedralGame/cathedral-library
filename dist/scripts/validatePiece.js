@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const __1 = require("../../");
-const isPieceValid = (grid, piece, location, firstMove = false) => {
+exports.isPieceValid = (grid, piece, location, firstMove = false) => {
     const [centreY, centreX] = location;
     const { notation, rotation, structure } = piece;
     if (firstMove) {
@@ -28,7 +28,7 @@ const isPieceValid = (grid, piece, location, firstMove = false) => {
     });
 };
 exports.validatePiece = (grid, piece, location, attemptedRotations = 0, firstMove = false) => {
-    if (isPieceValid(grid, piece, location, firstMove)) {
+    if (exports.isPieceValid(grid, piece, location, firstMove)) {
         return Object.assign({}, piece, { location });
     }
     if (attemptedRotations === 3) {
