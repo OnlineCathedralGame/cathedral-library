@@ -1,5 +1,6 @@
 /* tslint:disable:no-multi-spaces trailing-comma */
 import { BorderGrid, Piece, State } from '../../';
+import { parseBorders } from '../scripts/parseBorders';
 
 const Pieces: Pieces = {
 
@@ -127,18 +128,6 @@ const Pieces: Pieces = {
 };
 
 export const getPiece = (notation: string = '', player: State['player'] = 0): Piece => {
-  const parseBorders = (structure: Piece['structure']): BorderGrid => {
-    const maxCoord = structure.length - 1;
-
-    return structure.map((row, y, structure) => row.map((piece, x) => (
-      piece !== null ? [
-        y === 0 || structure[y - 1][x] !== piece,        // up
-        x === maxCoord || structure[y][x + 1] !== piece, // right
-        y === maxCoord || structure[y + 1][x] !== piece, // down
-        x === 0 || structure[y][x - 1] !== piece,        // left
-      ] : null
-    )));
-  };
 
   if (!notation) {
     return {

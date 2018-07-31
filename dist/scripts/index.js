@@ -8,3 +8,4 @@ __export(require("./insertPiece"));
 __export(require("./rotatePiece"));
 __export(require("./territoryAssignment"));
 __export(require("./validatePiece"));
+__export(require("./parseBorders"));

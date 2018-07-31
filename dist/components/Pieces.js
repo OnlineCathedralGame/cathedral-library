@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const parseBorders_1 = require("../scripts/parseBorders");
 const Pieces = {
     ca: {
         name: 'Cathedral',
@@ -113,15 +114,6 @@ const Pieces = {
     },
 };
 exports.getPiece = (notation = '', player = 0) => {
-    const parseBorders = (structure) => {
-        const maxCoord = structure.length - 1;
-        return structure.map((row, y, structure) => row.map((piece, x) => (piece !== null ? [
-            y === 0 || structure[y - 1][x] !== piece,
-            x === maxCoord || structure[y][x + 1] !== piece,
-            y === maxCoord || structure[y + 1][x] !== piece,
-            x === 0 || structure[y][x - 1] !== piece,
-        ] : null)));
-    };
     if (!notation) {
         return {
             notation: '',
@@ -139,5 +131,5 @@ exports.getPiece = (notation = '', player = 0) => {
         ? Pieces[notation].structure.map((row) => [...row].reverse())
         : Pieces[notation].structure)
         .map((row) => row.map((block) => block && player));
-    return Object.assign({}, Pieces[notation], { notation, rotation: 0, location: [], structure, removable: false, borders: parseBorders(structure), player: notation === 'ca' ? 0 : player });
+    return Object.assign({}, Pieces[notation], { notation, rotation: 0, location: [], structure, removable: false, borders: parseBorders_1.parseBorders(structure), player: notation === 'ca' ? 0 : player });
 };

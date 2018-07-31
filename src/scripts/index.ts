@@ -3,3 +3,4 @@ export * from './insertPiece';
 export * from './rotatePiece';
 export * from './territoryAssignment';
 export * from './validatePiece';
+export * from './parseBorders';

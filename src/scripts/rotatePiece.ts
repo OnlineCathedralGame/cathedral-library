@@ -1,16 +1,18 @@
-import { Grid, Piece } from '../../';
+import { Grid, parseBorders, Piece } from '../../';
 
 export const rotatePiece = (piece: Piece, rotations = 1): Piece => {
-  const { borders, structure, rotation } = piece;
+  const { structure, rotation } = piece;
 
   if (rotations === 0) {
     return piece;
   }
 
+  const rotatedStructure = rotateGrid(structure);
+
   const rotatedPiece = {
     ...piece,
-    structure: rotateGrid(structure),
-    borders: rotateGrid(borders),
+    structure: rotatedStructure,
+    borders: parseBorders(rotatedStructure),
     rotation: (rotation  + 1) % 4,
   };
 
