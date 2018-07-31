@@ -8,7 +8,8 @@ export interface State {
   readonly move: -1 | 1;
 }
 
-export type Grid<T> = ReadonlyArray<ReadonlyArray<T>>;
+// tslint:disable-next-line no-any
+export type Grid<T = any> = ReadonlyArray<ReadonlyArray<T>>;
 
 export type PieceGrid = Grid<Piece | null>;
 export type StructureGrid = Grid<State['player'] | null>;
